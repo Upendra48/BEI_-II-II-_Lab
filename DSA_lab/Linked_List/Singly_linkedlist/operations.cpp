@@ -64,6 +64,7 @@ void DeleteNode(int pos, Node* &head){   //? 4. Deleting a node at given positio
     Node *temp = ptr->next;
     ptr->next = temp->next;
     delete temp;
+    cout<< "Node deleted successfully" <<endl;
 }
 
 void printNode(Node* head){
@@ -74,6 +75,16 @@ void printNode(Node* head){
     }
     cout<< "NULL" <<endl;
 }
+void findLength(Node* head){
+    Node *temp = head;
+    int count = 0;
+    while(temp != NULL){
+        count++;
+        temp = temp->next;
+    }
+    cout<< "Length of the linked list is: " << count <<endl;
+
+}
 
 int main(){
     Node* head = NULL;
@@ -81,14 +92,22 @@ int main(){
     InsertAtHead(head,20);
     InsertAtHead(head,30);
     InsertAtHead(head,40);
+
+    printNode(head);
     InsertAtTail(head,50);
     InsertAtPosition(head, 60, 2);
 
     printNode(head);
 
+    findLength(head);
+
     DeleteNode(2,head);
 
+    findLength(head);
+
     printNode(head);
+
+
 
     return 0;
 }

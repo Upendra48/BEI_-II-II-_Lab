@@ -60,6 +60,7 @@ class Queue {
         return (front>rear);
     
     }
+    
 };
 
 int main(){
@@ -74,6 +75,6 @@ int main(){
     q.dequeue();
     cout << q.peek()<<endl;
     
-    
+
     return 0;
 }
