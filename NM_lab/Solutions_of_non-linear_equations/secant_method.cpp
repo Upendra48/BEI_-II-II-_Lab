@@ -1,3 +1,4 @@
+// Secant method to find the root of a non-linear equation
 #include<bits/stdc++.h>
 #define EPSILON 0.001
 #define e 1.5

@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-// int fib(int n);
+//int fib(int n);
 
 int fib(int n){
     if(n==0 || n==1){
@@ -20,11 +20,11 @@ int main(){
 }
 
 
-// Dynamic Programming
+//Dynamic Programming
 
 // int fib(int n){
 //     int f[n+1];
-//     f[0] = 0;
+//     f[0] = 0;5
 //     f[1] = 1;
 //     for(int i=2; i<=n; i++){
 //         f[i] = f[i-1] + f[i-2];
