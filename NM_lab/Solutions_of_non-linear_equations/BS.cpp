@@ -12,12 +12,14 @@ double func(double x)
 int main()
 {	
 	double a , b ;
+	up:
 	cin >> a >> b;
+	
 
 	if (func(a) * func(b) >= 0)
 	{
 		cout << "You have not assumed right a and b\n";
-		return 0;
+		goto up;
 	}
 	double c;
 	cout << "a\t\t" << "b\t\t" << "Function a\t\t function b \t\t"<<"mid part"<< endl;

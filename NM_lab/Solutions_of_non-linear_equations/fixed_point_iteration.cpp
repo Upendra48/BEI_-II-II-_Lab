@@ -7,7 +7,7 @@ using namespace std;
 
 double func(double x)
 {
-    return cos;
+    return x*x-4;
 }
 
 int main(){

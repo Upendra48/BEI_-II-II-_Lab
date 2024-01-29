@@ -1,38 +1,77 @@
-// Implementation of Binary Tree
+// Creating A binary tree
 
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-class Node{
+class node{
     public:
         int data;
-        Node* left;
-        Node* right;
+        node *left;
+        node *right;
+
+    node(int data){
+        this->data = data;
+        this->left = NULL;
+        this->right = NULL;
+    }
 };
 
-Node* createNode(int data){
-    Node* newNode = new Node();
-    newNode->data = data;
-    newNode->left = newNode->right = NULL;
-    return newNode;
+node* createTree(node* root){
+    int data;
+    cout << "Enter data: ";
+    cin >> data;
+
+    root = new node(data);
+
+    if(data == -1){
+        return NULL;
+    }
+    cout << "Enter left child of : " << data << endl;
+    root->left = createTree(root->left);
+    cout << "Enter right child of: " << data << endl;
+    root->right = createTree(root->right);
+    return root;
 }
 
-int printNode(Node* root){
+void inorder(node* root){
     if(root == NULL){
-        return 0;
+        return;
     }
-    cout<<root->data<<" ";
-    printNode(root->left);
-    printNode(root->right);
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+void preorder(node* root){
+    if(root== NULL){
+        return;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void postorder(node* root){
+    if(root== NULL){
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
 }
 
 int main(){
-    Node* root = createNode(1);
-    root->left = createNode(2);
-    root->right = createNode(3);
-    
-    root->left->left = createNode(4);
+    node *root = NULL;
+    // creating a tree
+    root = createTree(root);
+    // 1 2 -1 -1 3 -1 -1
 
-    printNode(root);
+    // traversal
+    inorder(root);
+    cout << endl;
+    preorder(root);
+    cout << endl;
+    postorder(root);
+
     return 0;
 }
