@@ -1,6 +1,7 @@
 // Creating A binary tree
 
 #include<iostream>
+#include<queue>
 using namespace std;
 
 class node{
@@ -60,6 +61,37 @@ void postorder(node* root){
     cout << root->data << " ";
 }
 
+void levelOrderTraversal(node* root) {
+    queue<node*> q;
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()) {
+        node* temp = q.front();
+        q.pop();
+
+        if(temp == NULL) { 
+            //purana level complete traverse ho chuka hai
+            cout << endl;
+            if(!q.empty()) { 
+                //queue still has some child ndoes
+                q.push(NULL);
+            }  
+        }
+        else{
+            cout << temp -> data << " ";
+            if(temp ->left) {
+                q.push(temp ->left);
+            }
+
+            if(temp ->right) {
+                q.push(temp ->right);
+            }
+        }
+    }
+
+}
+
 int main(){
     node *root = NULL;
     // creating a tree
@@ -72,6 +104,10 @@ int main(){
     preorder(root);
     cout << endl;
     postorder(root);
+
+    cout<<endl;
+    cout<<"Level order traversal: ";
+    levelOrderTraversal(root);
 
     return 0;
 }
