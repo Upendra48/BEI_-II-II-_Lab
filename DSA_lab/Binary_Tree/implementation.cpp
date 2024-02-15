@@ -61,36 +61,36 @@ void postorder(node* root){
     cout << root->data << " ";
 }
 
-void levelOrderTraversal(node* root) {
-    queue<node*> q;
-    q.push(root);
-    q.push(NULL);
+// void levelOrderTraversal(node* root) {
+//     queue<node*> q;
+//     q.push(root);
+//     q.push(NULL);
 
-    while(!q.empty()) {
-        node* temp = q.front();
-        q.pop();
+//     while(!q.empty()) {
+//         node* temp = q.front();
+//         q.pop();
 
-        if(temp == NULL) { 
-            //purana level complete traverse ho chuka hai
-            cout << endl;
-            if(!q.empty()) { 
-                //queue still has some child ndoes
-                q.push(NULL);
-            }  
-        }
-        else{
-            cout << temp -> data << " ";
-            if(temp ->left) {
-                q.push(temp ->left);
-            }
+//         if(temp == NULL) { 
+//             //purana level complete traverse ho chuka hai
+//             cout << endl;
+//             if(!q.empty()) { 
+//                 //queue still has some child ndoes
+//                 q.push(NULL);
+//             }  
+//         }
+//         else{
+//             cout << temp -> data << " ";
+//             if(temp ->left) {
+//                 q.push(temp ->left);
+//             }
 
-            if(temp ->right) {
-                q.push(temp ->right);
-            }
-        }
-    }
+//             if(temp ->right) {
+//                 q.push(temp ->right);
+//             }
+//         }
+//     }
 
-}
+// }
 
 int main(){
     node *root = NULL;
